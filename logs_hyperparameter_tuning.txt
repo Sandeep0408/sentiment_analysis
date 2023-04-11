@@ -1,0 +1,31 @@
+##BERT
+
+# Class 0 : Negative class has the fewest samples, so we weight it higher, 2473 count
+# Class 1 : Positive class has the most samples, so we weight it lower}, 12118 count
+
+#Hyperparameter_variation_1
+epochs = 10
+batch_size = 30
+class_weights = {
+	0: 8.0 # Class 1 has the fewest samples, so we weight it higher
+	1: 1.0 }
+
+      precision    recall  f1-score   support
+
+           0       0.75      0.68      0.71       371
+           1       0.92      0.94      0.93      1447
+
+    accuracy                           0.89      1818
+   macro avg       0.84      0.81      0.82      1818
+weighted avg       0.89      0.89      0.89      1818
+
+#Hyperparameter_variation_2
+epochs = 20
+batch_size = 30
+class_weights = {
+        0: 2.45 # Class 1 has the fewest samples, so we weight it higher
+        1: 0.62 }
+
+Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
+
+Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
