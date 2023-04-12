@@ -4,22 +4,26 @@
 # Class 1 : Positive class has the most samples, so we weight it lower}, 12118 count
 
 #Hyperparameter_variation_1
+#pytorch file with weights created c2_new_model_weights_h1.pt
 epochs = 10
 batch_size = 30
 class_weights = {
 	0: 8.0 # Class 1 has the fewest samples, so we weight it higher
 	1: 1.0 }
 
-      precision    recall  f1-score   support
+              precision    recall  f1-score   support
 
-           0       0.75      0.68      0.71       371
+           0       0.76      0.68      0.72       371
            1       0.92      0.94      0.93      1447
 
     accuracy                           0.89      1818
    macro avg       0.84      0.81      0.82      1818
 weighted avg       0.89      0.89      0.89      1818
 
+test_accuracy: 0.890
+
 #Hyperparameter_variation_2
+#pytorch file with weights created c2_new_model_weights_h2.pt
 epochs = 20
 batch_size = 30
 class_weights = {
@@ -29,3 +33,38 @@ class_weights = {
 Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
 
 Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
+
+              precision    recall  f1-score   support
+
+           0       0.79      0.74      0.76       371
+           1       0.93      0.95      0.94      1447
+
+    accuracy                           0.91      1818
+   macro avg       0.86      0.84      0.85      1818
+weighted avg       0.91      0.91      0.91      1818
+
+test_accuracy: 0.91
+
+
+#Hyperparameter_variation_3
+#pytorch file with weights created c2_new_model_weights_h3.pt
+epochs = 30
+batch_size = 40
+class_weights = {
+        0: 2.45 # Class 1 has the fewest samples, so we weight it higher
+        1: 0.62 }
+
+Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
+
+Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
+
+              precision    recall  f1-score   support
+
+           0       0.82      0.79      0.80       371
+           1       0.95      0.95      0.95      1447
+
+    accuracy                           0.92      1818
+   macro avg       0.88      0.87      0.88      1818
+weighted avg       0.92      0.92      0.92      1818
+
+test_accuracy: 0.921
