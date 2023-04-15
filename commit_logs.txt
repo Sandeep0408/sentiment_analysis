@@ -1,0 +1,1 @@
+CNN Model finetuned and tested on new dataset, accuracy achieved of 91 % with no pre-processing done. Amazon review dataset downloaded from Kaggle | v0.1
