@@ -1,3 +1,13 @@
-CNN Model finetuned and tested on new dataset, accuracy achieved of 91 % with no pre-processing done. Amazon review dataset downloaded from Kaggle | v0.1
+#Commit_change_1
+CNN Model finetuned and achieved accuracy of 96% on test dataset
+BERT MODEL finetuned and achieved accuracy of 92% on test dataset
 
-BERT Model finetuned and tested on Amazon review dataset downloaded from Kaggle, accuracy acheived 94 % with no-pre-processing | v0.1.1
+#Commit_change_2
+CNN & BERT model trained on new dataset, CNN acheived an accuracy of 90% whereas BERT had an accuracy of 94%.
+Both notebooks uploaded to git 
+ 
+#Commit_change_3
+LSTM code fixed, below parameters updated to improve accuracy from 80% to 95%
+	1) Changing weights from 2.45,0.62 to 3.33,1.43 for label0 (i.e. negative) and label1 (i.e. positive) respectively. 
+	2) Changing batch size from 30 to 128
+LSTM trained on new dataset, accuracy recorded is 88%

@@ -10,6 +10,7 @@ batch_size = 30
 class_weights = {
 	0: 8.0 # Class 1 has the fewest samples, so we weight it higher
 	1: 1.0 }
+optimizer = AdamW(model.parameters(),lr = 1e-5)
 
               precision    recall  f1-score   support
 
@@ -29,10 +30,11 @@ batch_size = 30
 class_weights = {
         0: 2.45 # Class 1 has the fewest samples, so we weight it higher
         1: 0.62 }
+optimizer = AdamW(model.parameters(),lr = 5e-5)
 
 Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
 
-Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
+Derivation of weights for class sample 1 --> Total Samples / (2 * 9645)
 
               precision    recall  f1-score   support
 
@@ -53,18 +55,106 @@ batch_size = 40
 class_weights = {
         0: 2.45 # Class 1 has the fewest samples, so we weight it higher
         1: 0.62 }
+optimizer = AdamW(model.parameters(),lr = 1e-5)
 
 Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
 
-Derivation of weights for class sample 0 --> Total Samples / (2 * 2473)
+Derivation of weights for class sample 1 --> Total Samples / (2 * 9645)
 
               precision    recall  f1-score   support
 
-           0       0.82      0.79      0.80       371
-           1       0.95      0.95      0.95      1447
+    Negative       0.82      0.76      0.79       371
+    Positive       0.94      0.96      0.95      1447
 
     accuracy                           0.92      1818
-   macro avg       0.88      0.87      0.88      1818
+   macro avg       0.88      0.86      0.87      1818
 weighted avg       0.92      0.92      0.92      1818
 
-test_accuracy: 0.921
+test_accuracy: 0.917
+
+#CNN
+#Variation_1
+epochs = 40
+batch_size = 30
+class_weights = {
+        0: 2.45 # Class 0 has the fewest samples, so we weight it higher
+        1: 0.62 # Class 1 has the fewest samples, so we weight it higher}
+lr = 1e-5
+optimizer = Adam(learning_rate=lr)
+
+early_stop = EarlyStopping(monitor='val_loss', patience=5, verbose=1)
+
+Test Score: 0.1153663769364357
+Test Accuracy: 0.9624587297439575
+
+#Variation_2 (Batch size & Learnig rate changed)
+epochs = 40
+batch_size = 128
+class_weights = {
+        0: 2.45 # Class 0 has the fewest samples, so we weight it higher
+        1: 0.62 # Class 1 has the fewest samples, so we weight it higher}
+lr = 5e-5
+optimizer = Adam(learning_rate=lr)
+
+early_stop = EarlyStopping(monitor='val_loss', patience=5, verbose=1)
+
+Test Score: 0.11387032270431519
+Test Accuracy: 0.9616336822509766
+
+
+#LSTM
+#Variation_1
+epochs = 40
+batch_size = 30
+class_weights = {
+        0: 2.45 # Class 0 has the fewest samples, so we weight it higher
+        1: 0.62 # Class 1 has the fewest samples, so we weight it higher}
+lr = 1e-5
+optimizer = Adam(learning_rate=lr)
+
+early_stop = EarlyStopping(monitor='val_loss', patience=5, verbose=1)
+
+Test Score: 0.6993885636329651
+Test Accuracy: 0.22648514807224274
+
+#Variation_2 (Learning rate changed)
+epochs = 40
+batch_size = 30
+class_weights = {
+        0: 2.45 # Class 0 has the fewest samples, so we weight it higher
+        1: 0.62 # Class 1 has the fewest samples, so we weight it higher}
+lr = 5e-5
+optimizer = Adam(learning_rate=lr)
+
+early_stop = EarlyStopping(monitor='val_loss', patience=5, verbose=1)
+
+Test Score: 0.695166289806366
+Test Accuracy: 0.5796204805374146
+
+#Variation_3 (Weights changed)
+epochs = 40
+batch_size = 30
+class_weights = {
+        0: 3.33 # Class 0 has the fewest samples, so we weight it higher
+        1: 1.43 # Class 1 has the fewest samples, so we weight it higher}
+lr = 5e-5
+optimizer = Adam(learning_rate=lr)
+
+early_stop = EarlyStopping(monitor='val_loss', patience=5, verbose=1)
+
+Test Score: 0.5568097233772278
+Test Accuracy: 0.8077557682991028
+
+#Variation_4 (Batch-size changed, weights changed)
+epochs = 40
+batch_size = 128
+class_weights = {
+        0: 2.45 # Class 0 has the fewest samples, so we weight it higher
+        1: 0.63 # Class 1 has the fewest samples, so we weight it higher}
+lr = 5e-5
+optimizer = Adam(learning_rate=lr)
+
+early_stop = EarlyStopping(monitor='val_loss', patience=5, verbose=1)
+
+Test Score: 0.1682719588279724
+Test Accuracy: 0.9517326951026917
